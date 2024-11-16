@@ -7,11 +7,10 @@ import {
   Preload,
   useTexture,
 } from "@react-three/drei";
-
 import CanvasLoader from "../Loader";
 
-const Ball = (props) => {
-  const [decal] = useTexture([props.imgUrl]);
+const Ball = ({ imgUrl }) => {
+  const [decal] = useTexture([imgUrl]);
 
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
@@ -42,7 +41,6 @@ const BallCanvas = ({ icon }) => {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
-
     setIsMobile(mediaQuery.matches);
 
     const handleMediaQueryChange = (event) => {
@@ -50,7 +48,6 @@ const BallCanvas = ({ icon }) => {
     };
 
     mediaQuery.addEventListener("change", handleMediaQueryChange);
-
     return () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
@@ -60,11 +57,11 @@ const BallCanvas = ({ icon }) => {
     <Canvas
       frameloop="demand"
       shadows
-      dpr={isMobile ? [1, 1] : [1, 2]} // Adjusting dpr for mobile
-      gl={{ preserveDrawingBuffer: false }} // Disable preserveDrawingBuffer for performance
+      dpr={isMobile ? [1, 1] : [1, 2]}
+      gl={{ preserveDrawingBuffer: false }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={!isMobile} /> {/* Disable zoom on mobile */}
+        <OrbitControls enableZoom={!isMobile} />
         <Ball imgUrl={icon} />
       </Suspense>
       <Preload all />
