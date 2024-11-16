@@ -29,7 +29,7 @@ import youbeeai from "./company/youbeeai.png";
 import TheWildOasis from "./TheWildOasis.png";
 import ToDoList from "./ToDoList.png";
 import ReactPizza from "./ReactPizza.png";
-import Blog from "./blog.png";
+import Blog from "./Blog.png";
 import admin from "./admin.png";
 import ihab from "./ihab.png";
 
