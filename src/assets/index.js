@@ -21,10 +21,10 @@ import tailwind from "./tech/tailwind.png";
 import bootstrap from "./tech/bootstrap.png";
 import threejs from "./tech/threejs.svg";
 
-import satellite from "./company/satellite.png";
-import CCG from "./company/CCG.png";
-import CNS from "./company/CNS.png";
-import youbeeai from "./company/youbeeai.png";
+import satellite from "/src/assets/company/satellite.png";
+import CCG from "/src/assets/company/CCG.png";
+import CNS from "/src/assets/company/CNS.png";
+import youbeeai from "/src/assets/company/youbeeai.png";
 
 import TheWildOasis from "./TheWildOasis.png";
 import ToDoList from "./ToDoList.png";
