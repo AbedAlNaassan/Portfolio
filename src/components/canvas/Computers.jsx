@@ -5,7 +5,20 @@ import CanvasLoader from "../Loader";
 import React from "react";
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const { scene } = useGLTF("./desktop_pc/scene.gltf", true);
+
+  // Dispose of the GLTF assets to avoid memory leaks
+  useEffect(() => {
+    return () => {
+      scene.traverse((child) => {
+        if (child.isMesh) child.geometry.dispose();
+        if (child.material) {
+          Object.values(child.material).forEach((mat) => mat.dispose());
+        }
+      });
+    };
+  }, [scene]);
+
   return (
     <mesh>
       <hemisphereLight intensity={0.15} groundColor="black" />
@@ -19,9 +32,8 @@ const Computers = ({ isMobile }) => {
         shadow-mapSize={1024}
         decay={0}
       />
-
       <primitive
-        object={computer.scene}
+        object={scene}
         scale={isMobile ? 0.7 : 0.75}
         position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
@@ -53,13 +65,13 @@ const ComputersCanvas = () => {
     <Canvas
       frameloop="demand"
       shadows
-      dpr={[1, 2]}
+      dpr={isMobile ? [1, 1] : [1, 2]} // Adjusting the DPR for mobile devices
       camera={{ position: [20, 3, 5], fov: 25 }}
-      gl={{ preserveDrawingBuffer: true }}
+      gl={{ preserveDrawingBuffer: false }} // Disabling preserveDrawingBuffer for performance
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
-          enableZoom={false}
+          enableZoom={!isMobile} // Disabling zoom on mobile devices for performance
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
