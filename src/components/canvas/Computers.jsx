@@ -4,31 +4,29 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 import React from "react";
 
-const Computers = ({ deviceType }) => {
+const Computers = ({ isMobile }) => {
   const { scene } = useGLTF("./desktop_pc/scene.gltf", true);
 
-  // Dispose of the GLTF assets to avoid memory leaks
   useEffect(() => {
     return () => {
       scene.traverse((child) => {
-        if (child.isMesh) child.geometry.dispose();
-        if (child.material) {
-          Object.values(child.material).forEach((mat) => mat.dispose());
+        if (child.isMesh) {
+          child.geometry.dispose();
+          if (child.material) {
+            if (Array.isArray(child.material)) {
+              child.material.forEach((mat) => mat.dispose && mat.dispose());
+            } else {
+              child.material.dispose && child.material.dispose();
+            }
+          }
         }
       });
     };
   }, [scene]);
 
-  let scale = 0.75;
-  let position = [0, -3.25, -1.5];
-
-  if (deviceType === "mobile") {
-    scale = 0.7;
-    position = [0, -3, -2.2];
-  } else if (deviceType === "tablet") {
-    scale = 0.73;
-    position = [0, -3.1, -1.8];
-  }
+  // Adjust scale and position based on device size
+  const scale = isMobile ? 0.5 : 0.75; // Smaller scale for mobile
+  const position = isMobile ? [0, -3, -1.8] : [0, -3.25, -1.5]; // Adjust position for mobile
 
   return (
     <mesh>
@@ -54,27 +52,18 @@ const Computers = ({ deviceType }) => {
 };
 
 const ComputersCanvas = () => {
-  const [deviceType, setDeviceType] = useState("desktop");
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const updateDeviceType = () => {
-      if (window.innerWidth <= 500) {
-        setDeviceType("mobile");
-      } else if (window.innerWidth > 500 && window.innerWidth <= 1024) {
-        setDeviceType("tablet");
-      } else {
-        setDeviceType("desktop");
-      }
+    const updateSize = () => {
+      setIsMobile(window.innerWidth <= 500); // Set mobile breakpoint
     };
 
-    // Initialize device type on mount
-    updateDeviceType();
-
-    // Update device type on resize
-    window.addEventListener("resize", updateDeviceType);
+    updateSize(); // Initial check
+    window.addEventListener("resize", updateSize); // Listen for resize events
 
     return () => {
-      window.removeEventListener("resize", updateDeviceType);
+      window.removeEventListener("resize", updateSize);
     };
   }, []);
 
@@ -82,17 +71,17 @@ const ComputersCanvas = () => {
     <Canvas
       frameloop="demand"
       shadows
-      dpr={deviceType === "mobile" ? [1, 1] : [1, 2]} // Adjusting the DPR for mobile devices
-      camera={{ position: [20, 3, 5], fov: 25 }}
-      gl={{ preserveDrawingBuffer: false }} // Disabling preserveDrawingBuffer for performance
+      dpr={isMobile ? [1, 1] : [1, 2]} // Adjust pixel density for mobile
+      camera={{ position: [20, 3, 5], fov: isMobile ? 35 : 25 }} // Adjust FOV for mobile
+      gl={{ preserveDrawingBuffer: false }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
-          enableZoom={deviceType !== "mobile"} // Disabling zoom on mobile devices for performance
+          enableZoom={!isMobile} // Disable zoom on mobile
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Computers deviceType={deviceType} />
+        <Computers isMobile={isMobile} />
       </Suspense>
       <Preload all />
     </Canvas>
