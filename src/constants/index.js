@@ -28,6 +28,7 @@ import {
   ihab,
   dany,
   ibrahim,
+  three,
 } from "../assets";
 
 export const navLinks = [

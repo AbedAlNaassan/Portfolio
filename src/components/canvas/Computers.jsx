@@ -4,7 +4,7 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 import React from "react";
 
-const Computers = ({ isMobile }) => {
+const Computers = ({ deviceType }) => {
   const { scene } = useGLTF("./desktop_pc/scene.gltf", true);
 
   // Dispose of the GLTF assets to avoid memory leaks
@@ -18,6 +18,17 @@ const Computers = ({ isMobile }) => {
       });
     };
   }, [scene]);
+
+  let scale = 0.75;
+  let position = [0, -3.25, -1.5];
+
+  if (deviceType === "mobile") {
+    scale = 0.7;
+    position = [0, -3, -2.2];
+  } else if (deviceType === "tablet") {
+    scale = 0.73;
+    position = [0, -3.1, -1.8];
+  }
 
   return (
     <mesh>
@@ -34,8 +45,8 @@ const Computers = ({ isMobile }) => {
       />
       <primitive
         object={scene}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
+        scale={scale}
+        position={position}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -43,21 +54,27 @@ const Computers = ({ isMobile }) => {
 };
 
 const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [deviceType, setDeviceType] = useState("desktop");
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
+    const updateDeviceType = () => {
+      if (window.innerWidth <= 500) {
+        setDeviceType("mobile");
+      } else if (window.innerWidth > 500 && window.innerWidth <= 1024) {
+        setDeviceType("tablet");
+      } else {
+        setDeviceType("desktop");
+      }
     };
 
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    // Initialize device type on mount
+    updateDeviceType();
+
+    // Update device type on resize
+    window.addEventListener("resize", updateDeviceType);
 
     return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+      window.removeEventListener("resize", updateDeviceType);
     };
   }, []);
 
@@ -65,17 +82,17 @@ const ComputersCanvas = () => {
     <Canvas
       frameloop="demand"
       shadows
-      dpr={isMobile ? [1, 1] : [1, 2]} // Adjusting the DPR for mobile devices
+      dpr={deviceType === "mobile" ? [1, 1] : [1, 2]} // Adjusting the DPR for mobile devices
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: false }} // Disabling preserveDrawingBuffer for performance
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
-          enableZoom={!isMobile} // Disabling zoom on mobile devices for performance
+          enableZoom={deviceType !== "mobile"} // Disabling zoom on mobile devices for performance
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Computers isMobile={isMobile} />
+        <Computers deviceType={deviceType} />
       </Suspense>
       <Preload all />
     </Canvas>

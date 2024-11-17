@@ -20,6 +20,7 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import bootstrap from "./tech/bootstrap.png";
 import threejs from "./tech/threejs.png";
+import three from "./tech/threejs.svg";
 
 import satellite from "./company/Satellite.png";
 import CCG from "./company/CCG.png";
@@ -70,4 +71,5 @@ export {
   ihab,
   dany,
   ibrahim,
+  three,
 };
