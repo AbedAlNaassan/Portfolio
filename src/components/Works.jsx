@@ -70,10 +70,10 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-          commodi voluptate amet delectus enim est praesentium, dignissimos quod
-          eos voluptatum excepturi voluptatibus fugiat, natus dicta illum
-          consequuntur ipsa ratione. Corrupti.
+          Here are some of the projects I’ve worked on, showcasing my skills in
+          creating responsive designs and efficient backend systems. Each
+          project reflects my dedication to solving problems and building
+          functional, user-friendly web applications.
         </motion.p>
 
         <div className="mt-20 flex flex-wrap gap-7">

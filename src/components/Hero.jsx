@@ -7,23 +7,39 @@ const useScreenSize = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia(" (max-height: 768px)");
-    setIsSmallScreen(mediaQuery.matches);
+    // Define media queries for the specified conditions
+    const queries = [
+      window.matchMedia(
+        "(min-width: 501px) and (max-width: 1120px) and (max-height: 768px)"
+      ),
+      window.matchMedia(
+        "(min-width: 392px) and (max-width: 1120px) and (max-height: 614px)"
+      ),
+      window.matchMedia("(width: 1024px) and (height: 600px)"),
+    ];
 
-    const handleResize = (event) => {
-      setIsSmallScreen(event.matches);
+    const checkScreenSize = () => {
+      // If any query matches, set isSmallScreen to true
+      setIsSmallScreen(queries.some((query) => query.matches));
     };
 
-    mediaQuery.addEventListener("change", handleResize);
+    checkScreenSize(); // Initial check
+
+    // Add listeners to each query
+    queries.forEach((query) =>
+      query.addEventListener("change", checkScreenSize)
+    );
 
     return () => {
-      mediaQuery.removeEventListener("change", handleResize);
+      // Clean up listeners
+      queries.forEach((query) =>
+        query.removeEventListener("change", checkScreenSize)
+      );
     };
   }, []);
 
   return isSmallScreen;
 };
-
 const Hero = () => {
   const isSmallScreen = useScreenSize();
 
