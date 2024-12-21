@@ -10,6 +10,7 @@ import {
   Works,
   StarsCanvas,
   DownloadCVButton,
+  Education
 } from "./components";
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
     <BrowserRouter
       future={{
         v7_startTransition: true,
-        v7_relativeSplatPath: true, // Add this future flag for relative splat path resolution
+        v7_relativeSplatPath: true // Add this future flag for relative splat path resolution
       }}
     >
       <div className="relative z-0 bg-primary">
@@ -27,6 +28,7 @@ const App = () => {
         </div>
         <About />
         <Experience />
+        <Education />
         <Tech />
         <Works />
         <Feedbacks />

@@ -23,104 +23,171 @@ import {
   threejs,
   youbeeai,
   ReactPizza,
+  GenerateImage,
   Blog,
   admin,
   ihab,
   dany,
   ibrahim,
-  three,
+  home
 } from "../assets";
 
 export const navLinks = [
   {
     id: "about",
-    title: "About",
+    title: "About"
   },
   {
     id: "work",
-    title: "Work",
+    title: "Work"
   },
   {
     id: "contact",
-    title: "Contact",
-  },
+    title: "Contact"
+  }
 ];
 
 const services = [
   {
     title: "Web Developer",
-    icon: web,
+    icon: web
   },
   {
     title: "React Developer",
-    icon: mobile,
+    icon: mobile
   },
   {
     title: "Backend Developer",
-    icon: backend,
+    icon: backend
   },
   {
     title: "Database Management",
-    icon: creator,
-  },
+    icon: creator
+  }
 ];
 
 const technologies = [
   {
     name: "HTML 5",
-    icon: html,
+    icon: html
   },
   {
     name: "CSS 3",
-    icon: css,
+    icon: css
   },
   {
     name: "JavaScript",
-    icon: javascript,
+    icon: javascript
   },
   {
     name: "bootstrap",
-    icon: bootstrap,
+    icon: bootstrap
   },
   {
     name: "React JS",
-    icon: reactjs,
+    icon: reactjs
   },
   {
     name: "Redux Toolkit",
-    icon: redux,
+    icon: redux
   },
   {
     name: "Tailwind CSS",
-    icon: tailwind,
+    icon: tailwind
   },
   {
     name: "Node JS",
-    icon: nodejs,
+    icon: nodejs
   },
   {
     name: "MongoDB",
-    icon: mongodb,
+    icon: mongodb
   },
   {
     name: "Three JS",
-    icon: threejs,
+    icon: threejs
   },
   {
     name: "git",
-    icon: git,
+    icon: git
   },
   {
     name: "express",
-    icon: express,
+    icon: express
   },
   {
     name: "laravel",
-    icon: laravel,
-  },
+    icon: laravel
+  }
 ];
 
 const experiences = [
+  {
+    title: "Satellite Technician Assistant",
+    company_name: "Wissam Al Naassan",
+    icon: satellite,
+    iconBg: "#E6DEDD",
+    date: "September 2020 - Dec 2023 ",
+    points: [
+      "I meticulously surveyed sites, assessed environmental and structural factors, and successfully planned satellite system placements, ensuring optimal performance and customer satisfaction.",
+      "I identified efficient cabling routes, minimized disruptions, and installed or repaired aerials and satellite dishes, enhancing system reliability and operational efficiency.",
+      "I rigorously tested equipment, resolved faults promptly to reduce downtime, and provided accurate and competitivequotes, securing new system installation projects.",
+      "I consistently improved my technical skills and expanded my expertise, contributing to the timely and successful completion of multiple satellite system projects."
+    ]
+  },
+
+  {
+    title: "Network Engineer Internship(internship)",
+    company_name: "CNS Solid Group",
+    icon: CNS,
+    iconBg: "#E6DEDD",
+    date: "Apr 2023 - Jun 2023",
+    points: [
+      "I successfully implemented VLANs, VTP, and port security, improving network segmentation and security while optimizing overall system performance.",
+      "I deployed EtherChannel to enhance bandwidth and redundancy, and configured SSH, AAA, and password encryption, ensuring secure and reliable network access.",
+      "I managed VLANs, trunks, static routing, and OSPF, implemented Access Control Lists, applied NAT, and utilized IPv6concepts to achieve efficient and seamless network operations.",
+      "I implemented advanced security measures like port security and DHCP snooping, deployed zone-based firewalls, and configured ASA for NAT and ACLs, significantly strengthening network defenses."
+    ]
+  },
+
+  {
+    title: "Consolidated Consultancy Group",
+    company_name: "IT Assistant(Internship)",
+    icon: CCG,
+    iconBg: "#383E56",
+    date: "Sep 2019 - Dec 2019",
+    points: [
+      "I played a key role in installing and maintaining the IT framework, ensuring smooth operations and minimizing systemdowntime.",
+      "I provided IT support, installed peripherals like printers, and maintained the IT infrastructure to improve workflow efficiency.",
+      "I resolved network, system, and application queries via the help desk, enhancing user satisfaction and response times",
+      "I managed data entry, proofreading, and database maintenance, ensuring process accuracy and efficiency"
+    ]
+  }
+];
+
+const Educations = [
+  {
+    title: "Web Development Training",
+    company_name: "Self-Learning (Home Training)",
+    icon: home,
+    iconBg: "#383E56",
+    date: "Aug 2024 - Dec 2024",
+    points: [
+      "Built dynamic web applications using HTML, CSS, and JavaScript.",
+      "Learned backend development with Node.js, Express, and MongoDB",
+      "Gained experience with REST APIs and integrating databases.",
+      "Developed React applications using hooks, functional components, and state management.",
+      "Built complex UIs with Next.js and optimized rendering for performance.",
+      "Implemented global state management using Redux Toolkit.",
+      "Mastered MVC architecture and REST API development.",
+      "Explored GraphQL for efficient data fetching and querying.",
+      "Learned Deno as a modern alternative to Node.js.",
+      "Designed and implemented NoSQL databases using MongoDB.",
+      "Performed advanced queries, aggregations, and data modeling techniques.",
+      "Learned to integrate MongoDB with Node.js for full-stack development."
+    ]
+  },
+
   {
     title: "Web Developer Bootcamp(Remote)",
     company_name: "Youbee.ai",
@@ -131,49 +198,9 @@ const experiences = [
       "I became proficient in HTML, CSS, and JavaScript, creating visually appealing web pages and utilizing Bootstrap for responsive layouts and rapid prototyping.",
       "I gained expertise in PHP and MySQL, implementing CRUD functionalities, user authentication, image uploads, and user role management.",
       "I acquired knowledge of API integration, enhancing functionality and enabling seamless data exchange, and used Angular to build dynamic single-page applications.",
-      "I practiced using Laravel to streamline back-end development, improving code efficiency and contributing to robust, scalable applications.",
-    ],
-  },
-  {
-    title: "Network Engineer Internship(internship)",
-    company_name: "CNS Solid Group",
-    icon: CNS,
-    iconBg: "#E6DEDD",
-    date: "April 2023 - June 2023",
-    points: [
-      "particularly in switching, routing, and security, successfully implementing VLANs, VTP, and port security to enhance network segmentation and safety.",
-      "I deployed EtherChannel to increase bandwidth and redundancy, and configured SSH, AAA, and password encryption for secure network access.",
-      "I managed VLANs, trunks, static routing, and OSPF, implemented Access Control Lists, and applied NAT, understanding of IPv6 concepts for efficient network operation.",
-      "I implemented key security measures such as port security and DHCP snooping, deployed zone-based firewalls, configured ASA for NAT and ACLs.",
-    ],
-  },
-
-  {
-    title: "Satellite Technician Assistant",
-    company_name: "Wissam Al Naassan",
-    icon: satellite,
-    iconBg: "#E6DEDD",
-    date: "September 2019 - Present",
-    points: [
-      "I played a crucial role in installing, configuring, and maintaining the company’s IT framework, ensuring smooth and efficient system operations.",
-      "I provided general IT support, installed and maintained peripherals like printers and copiers, and supported the seamless functioning of our IT infrastructure.",
-      "I handled customer and colleague queries regarding networks, systems, and applications through a help desk, demonstrating strong communication and technical skills.",
-      "I managed ongoing tasks such as checking and proofreading content, performing data entry, maintaining databases, and efficiently using office equipment.",
-    ],
-  },
-  {
-    title: "Consolidated Consultancy Group",
-    company_name: "IT Assistant(Internship)",
-    icon: CCG,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "I played a crucial role in installing, configuring, and maintaining the company’s IT framework, ensuring smooth and efficient system operations.",
-      "I provided general IT support, installed and maintained peripherals like printers and copiers, and supported the seamless functioning of our IT infrastructure.",
-      "I handled customer and colleague queries regarding networks, systems, and applications through a help desk, demonstrating strong communication and technical skills.",
-      "I managed ongoing tasks such as checking and proofreading content, performing data entry, maintaining databases, and efficiently using office equipment.",
-    ],
-  },
+      "I practiced using Laravel to streamline back-end development, improving code efficiency and contributing to robust, scalable applications."
+    ]
+  }
 ];
 
 const testimonials = [
@@ -183,24 +210,24 @@ const testimonials = [
     name: "Dr.Ihab Agha",
     designation: "IT Coordinator",
     company: "LIU University",
-    image: ihab,
+    image: ihab
   },
   {
     testimonial:
       "Highly skilled in providing efficient solutions and maintaining operations.",
     name: "Ibrahim El Charif",
-    designation: "CCG",
+    designation: "Technical Account Manager",
     company: "CCG",
-    image: ibrahim,
+    image: ibrahim
   },
   {
     testimonial:
       "A highly professional known for delivering exceptional results and exceeding expectations.",
     name: "Dany Habchy",
-    designation: "CNS",
-    company: "Technical Team Leader",
-    image: dany,
-  },
+    designation: "Technical Team Leader ",
+    company: "CNS",
+    image: dany
+  }
 ];
 
 const projects = [
@@ -211,84 +238,20 @@ const projects = [
     tags: [
       {
         name: "Next.js",
-        color: "blue-text-gradient",
+        color: "blue-text-gradient"
       },
       {
         name: "Supababse",
-        color: "green-text-gradient",
+        color: "green-text-gradient"
       },
       {
         name: "Tailwind",
-        color: "pink-text-gradient",
-      },
+        color: "pink-text-gradient"
+      }
     ],
     image: TheWildOasis,
     source_code_link:
-      "https://github.com/AbedAlNaassan/The-Wild-Oasis-Website.git",
-  },
-  {
-    name: "ToDo-List",
-    description:
-      "A Todo List application that helps users create, manage, and organize tasks efficiently, it offers an intuitive interface for adding, editing, and deleting tasks.. ",
-    tags: [
-      {
-        name: "React",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "HTML",
-        color: "green-text-gradient",
-      },
-      {
-        name: "CSS",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: ToDoList,
-    source_code_link: "https://github.com/AbedAlNaassan/ToDo_List.git",
-  },
-  {
-    name: "React Pizza",
-    description:
-      "The Fast Pizza website is a menu platform showcasing a selection of pizza items for easy browsing. Users can view details of each pizza item, making it simple to explore.",
-    tags: [
-      {
-        name: "Vite",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "HTML",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Tailwind",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: ReactPizza,
-    source_code_link: "https://github.com/AbedAlNaassan/Abed-Fast-Pizza.git",
-  },
-
-  {
-    name: "Blog-Website",
-    description:
-      "A Laravel-based blog platform for easily creating, managing, and publishing posts with an intuitive interface and responsive design.",
-    tags: [
-      {
-        name: "Laravel",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "CSS",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: Blog,
-    source_code_link: "https://github.com/AbedAlNaassan/Blog_Website.git",
+      "https://github.com/AbedAlNaassan/The-Wild-Oasis-Website.git"
   },
 
   {
@@ -298,20 +261,108 @@ const projects = [
     tags: [
       {
         name: "Vite",
-        color: "blue-text-gradient",
+        color: "blue-text-gradient"
       },
       {
         name: "Supabase",
-        color: "green-text-gradient",
+        color: "green-text-gradient"
       },
       {
         name: "Styled Components",
-        color: "pink-text-gradient",
-      },
+        color: "pink-text-gradient"
+      }
     ],
     image: admin,
-    source_code_link: "https://github.com/AbedAlNaassan/TheWildOasis_Admin.git",
+    source_code_link: "https://github.com/AbedAlNaassan/TheWildOasis_Admin.git"
   },
+
+  {
+    name: "Image Generator",
+    description:
+      "integrates with OpenAI's DALL·E, enabling users to generate or explore AI-created images in a streamlined, user-friendly interface.",
+    tags: [
+      {
+        name: "React",
+        color: "blue-text-gradient"
+      },
+      {
+        name: "NodeJS",
+        color: "green-text-gradient"
+      },
+      {
+        name: "MongoDB",
+        color: "pink-text-gradient"
+      }
+    ],
+    image: GenerateImage,
+    source_code_link: "https://github.com/AbedAlNaassan/AI-Dall-e.git"
+  },
+
+  {
+    name: "React Pizza",
+    description:
+      "The Fast Pizza website is a menu platform showcasing a selection of pizza items for easy browsing. Users can view details of each pizza item, making it simple to explore.",
+    tags: [
+      {
+        name: "Vite",
+        color: "blue-text-gradient"
+      },
+
+      {
+        name: "Tailwind",
+        color: "pink-text-gradient"
+      }
+    ],
+    image: ReactPizza,
+    source_code_link: "https://github.com/AbedAlNaassan/Abed-Fast-Pizza.git"
+  },
+
+  {
+    name: "ToDo-List",
+    description:
+      "A Todo List application that helps users create, manage, and organize tasks efficiently, it offers an intuitive interface for adding, editing, and deleting tasks.. ",
+    tags: [
+      {
+        name: "React",
+        color: "blue-text-gradient"
+      },
+      {
+        name: "CSS",
+        color: "pink-text-gradient"
+      }
+    ],
+    image: ToDoList,
+    source_code_link: "https://github.com/AbedAlNaassan/ToDo_List.git"
+  },
+
+  {
+    name: "Blog-Website",
+    description:
+      "A Laravel-based blog platform for easily creating, managing, and publishing posts with an intuitive interface and responsive design.",
+    tags: [
+      {
+        name: "Laravel",
+        color: "blue-text-gradient"
+      },
+      {
+        name: "Supabase",
+        color: "green-text-gradient"
+      },
+      {
+        name: "CSS",
+        color: "pink-text-gradient"
+      }
+    ],
+    image: Blog,
+    source_code_link: "https://github.com/AbedAlNaassan/Blog_Website.git"
+  }
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export {
+  services,
+  technologies,
+  experiences,
+  testimonials,
+  projects,
+  Educations
+};

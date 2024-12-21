@@ -3,7 +3,6 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { testimonials } from "../constants";
-import { image, style } from "framer-motion/client";
 
 const FeedbackCard = ({
   index,
