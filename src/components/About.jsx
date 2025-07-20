@@ -39,14 +39,14 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
-        As a skilled web developer, I bring a passion for creating dynamic and
-        user-friendly websites.Proficient in JavaScript, HTML, CSS, PHP,
-        Laravel, React, and API integration, I’ve successfully delivered
-        responsive and visually appealing interfaces. My ability to tackle
-        complex challenges enables effective collaboration with cross-functional
-        teams. Whether it’s front-end, back-end, or full-stack development, I’m
-        committed to delivering high-quality solutions that enhance user
-        experiences.
+        As a skilled Software developer, I bring a passion for creating dynamic
+        and user-friendly web and app application. Proficient in HTML, CSS,
+        JavaScript, React/React Native, NodeJS, MongoDB, and API integration,
+        I’ve successfully delivered responsive and visually appealing
+        interfaces. My ability to tackle complex challenges enables effective
+        collaboration with cross-functional teams. Whether it’s front-end,
+        back-end, or full-stack development, I’m committed to delivering
+        high-quality solutions that enhance user experiences.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">
