@@ -87,10 +87,7 @@ const technologies = [
     name: "bootstrap",
     icon: bootstrap,
   },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
+
   {
     name: "Redux Toolkit",
     icon: redux,
